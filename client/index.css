@@ -11,6 +11,7 @@ body{
 
 .header{
     background-color: pink;
+    
 }
 
 .ribboncontainer{
@@ -21,15 +22,30 @@ body{
 
 .signup {
     background-color: white;
+    border:none;
+    border-radius:10px;
+    padding: 3px 18px;
+    height:20px;
+    color:navy;
+    margin-top: 8px;
 }
 
 .signup:hover {
-    color:yellow;
+    background-color:pink;
 }
 
 .login{
-    color:white;
+    background-color: white;
+    border:none;
+    border-radius:10px;
+    padding: 5px 10px;
+    height:22px;
+    color:navy;
+    margin-top:8px;
+
 }
+
 .login:hover {
-    background-color:white;
+    background-color:pink;
+    
 }

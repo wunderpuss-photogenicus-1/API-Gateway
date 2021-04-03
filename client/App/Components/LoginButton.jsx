@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 const LoginButton = (props) => (
-  <button className="loginButton"><i className="fas fa-sign-in-alt"></i>
-      LoginButton
+  
+  <button className="login" onClick=""><i className="fas fa-sign-in-alt"></i>
+      Login Button
   </button>
 );
 

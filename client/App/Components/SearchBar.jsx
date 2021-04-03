@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 const SearchBar = (props) => (
+
   <input
     type="search"
     placeholder={props.placeholder}
