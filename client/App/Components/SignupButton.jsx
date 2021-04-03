@@ -1,5 +1,9 @@
 import React from 'react';
 
+// const [ details, setDetails ] = useState({});
+
+
+
 const SignupButton = () => {
     function handleClick(e) {
         e.preventDefault();
