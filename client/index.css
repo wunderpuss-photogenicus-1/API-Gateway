@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.header{
+    background-color: pink;
+    
+}
+
+.ribboncontainer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.signup {
+    background-color: white;
+    border:none;
+    border-radius:10px;
+    padding: 3px 18px;
+    height:20px;
+    color:navy;
+    margin-top: 8px;
+}
+
+.signup:hover {
+    background-color:pink;
+}
+
+.login{
+    background-color: white;
+    border:none;
+    border-radius:10px;
+    padding: 5px 10px;
+    height:22px;
+    color:navy;
+    margin-top:8px;
+
+}
+
+.login:hover {
+    background-color:pink;
+    
+}
