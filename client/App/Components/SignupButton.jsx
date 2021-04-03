@@ -6,7 +6,7 @@ const SignupButton = () => {
       console.log('button working!')
     }
     return(
-       <button className="signup" onClick={handleClick}><i className="fas fa-user-plus"></i>
+       <button className="signup" onClick={handleClick}><i className="fas fa-user-plus"></i>Sign Up
        </button>
         
     )
