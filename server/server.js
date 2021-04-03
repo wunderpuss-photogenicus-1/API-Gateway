@@ -46,9 +46,10 @@ app.post('/signup',
 // search button 
 // GET request to server, 
     // take the request, and parse into a usable API fetch request, spits back out the response and send to the front page
-
-app.get('/search', (req, res) => {
-
+app.post('/search', (req, res) => {
+    console.log('Request body: ', req.body.updatedString)
+    res.status(200).send('We are at the back end /search endpoint')
+    console.log('We are at the back end /search endpoint')
 })
 
 // verify user is logged in. no subsequent middleware is activated unless user is verified. float the 

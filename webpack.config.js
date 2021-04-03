@@ -36,8 +36,9 @@ module.exports = {
      * routes api fetch requests from localhost:8080/api/* (webpack dev server)
      * to localhost:3000/api/* (where our Express server is running)
      */
-    proxy: {
-    },
+     proxy: {
+      '/search': 'http://localhost:3000'
+    }
   },
   module: {
     rules: [
