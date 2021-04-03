@@ -4,17 +4,25 @@ const userController = {};
 
 // create a new user account
 userController.createUser = (req, res, next) => {
+  console.log("req body username: ", req.body.username)
+  console.log("req body password: ", req.body.password)
   
   User.create({username: req.body.username, password: req.body.password}, (err, user) => {
     if (err) {
-      return  next({error: 'error in signing up. this error'});
+
+      res.locals.signupFail = true;
+      console.log(err)
+      // console.log(err)
+      return next({
+        log: 'userController.createUser',
+        message: { err: 'userController.createUser: An error occurred' }
+      });
     } else {
       res.locals.id = user._id.toString();
       return next();
     }
-  );
+  });
 };
-
 /**
 * verifyUser - Obtain username and password from the request body, locate
 * the appropriate user in the database, and then authenticate the submitted password
@@ -24,13 +32,19 @@ userController.verifyUser = (req, res, next) => {
   // write code here
   User.findOne({username: req.body.username}, 'username password', (err, user) => {
     if (err){
-      return next('error in user find one verify user', err) 
+      console.log('user schema: ', User);
+      res.locals.loginFail = true;
+      return next({
+        log: 'userController.verifyUser',
+        message: { err: 'userController.verifyUser: An error occurred' }
+      });
     }
     
     if (!user) {
       // redirect if incorrect pw or nonexistent user
-      res.locals.signupFail = true;
-      return res.status(200).send('/signupfail'); 
+      res.locals.loginFail = true;
+      // return res.status(200).send('/signupfail'); 
+      return next();
     }
     else {
       // check that password is correctly matching hashed password
@@ -41,12 +55,13 @@ userController.verifyUser = (req, res, next) => {
           return next();
         }
         else {
-          return res.status(200).send('/signupfail'); 
+          return res.status(200).send('/loginFail'); 
         }
       }); 
     }
 
   });
 };
+
 
 module.exports = userController;

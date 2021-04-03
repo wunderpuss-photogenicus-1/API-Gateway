@@ -29,7 +29,7 @@ sessionController.verifyLogin = (req, res, next) => {
 
 sessionController.startSession = (req, res, next) => {    
   if (res.locals.signupFail) return next();
-
+  if (res.locals.loginFail) return next();
   Session.findOne({cookieId: res.locals.id}, (err, session) => {
     if(session){
       return next();
