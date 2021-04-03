@@ -15,10 +15,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js",
-    "build-win": "set NODE_ENV=production&&webpack",
-    "dev-win": "concurrently \"nodemon server/server.js\"  \"set NODE_ENV=development&&webpack-dev-server --open\"",
-    "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack-dev-server & npm start"
+    "build-win": "SET NODE_ENV=production&&webpack",
+    "dev-win": "concurrently \"nodemon server/server.js\"  \"SET NODE_ENV=development&&webpack-dev-server --open\"",
+    "build": "SET NODE_ENV=production webpack",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
@@ -32,16 +32,33 @@
   "homepage": "https://github.com/tngraves/API-Gateway#readme",
   "dependencies": {
     "babel": "^6.23.0",
+    "babel-eslint": "^10.1.0",
     "bcrypt": "^5.0.1",
     "concurrently": "^6.0.0",
-    "css-loader": "^5.2.0",
     "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
     "mongoose": "^5.12.3",
     "nodemon": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
-    "webpack": "^4.46.0",
+    "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   }

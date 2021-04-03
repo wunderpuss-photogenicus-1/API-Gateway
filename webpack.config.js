@@ -14,7 +14,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   devtool: 'eval-source-map',
-  mode: process.env.NODE_ENV,
+  mode: 'development',
   devServer: {
     host: 'localhost',
     port: 8080,
@@ -47,7 +47,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-              presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         },
       },
