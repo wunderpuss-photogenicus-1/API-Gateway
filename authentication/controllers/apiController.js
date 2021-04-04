@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const apiController = {};
 
 apiController.googleBooks = (req, res, next) => {
@@ -8,6 +9,15 @@ apiController.googleBooks = (req, res, next) => {
     const finalUrl = 'https://www.googleapis.com/books/v1/volumes?q=Moby+Dick&key=AIzaSyCKP8TdjmMKlVeQFAh7oITw8OdUBBID2VU'
     console.log('in api controller')
     res.locals.data = 'in api controller'
+    fetch(finalUrl)
+    .then(response => response.json())
+    .then(data => {
+        consoledData = data.items;
+        console.log(consoledData);
+        return next();
+    })
+    .catch(err => console.log(err))
+
     // res.locals.finalUrl = finalUrl;
     // axios.get(finalUrl)
     // .then(response => {
@@ -20,7 +30,6 @@ apiController.googleBooks = (req, res, next) => {
     // .catch(error => {
     //     console.log(error);
     // });
-    return next();  
     // fetch(finalUrl)
     // .then(response => 
     //     response.json())

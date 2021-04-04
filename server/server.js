@@ -11,9 +11,10 @@ const cookieController = require('../authentication/controllers/cookieController
 const sessionController = require('../authentication/controllers/sessionController');
 const apiController = require('../authentication/controllers/apiController');
 
+
 // Mongoose Database connection
 console.log('Connecting to Mongoose Database...');
-const mongoURI = 'mongodb://localhost/API-Gateway';
+const mongoURI = 'mongodb://localhost/API-Gateway';   
 mongoose.connect(mongoURI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
     console.log('Successfully Connected to Mongoose Database') 
@@ -37,7 +38,7 @@ app.get('/',
 // login information is inside request body
 app.post('/signup', 
     userController.createUser,
-    cookieController.setSSIDCookie, 
+    cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {
         res.status(200).send('signup successful', res.locals) 
@@ -47,7 +48,7 @@ app.post('/signup',
 // search button 
 // GET request to server, 
     // take the request, and parse into a usable API fetch request, spits back out the response and send to the front page
-    app.post('/search', 
+app.post('/search', 
     apiController.googleBooks,
     (req, res) => {
     console.log('Request body: ', req.body.updatedString)
