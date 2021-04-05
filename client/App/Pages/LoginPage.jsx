@@ -7,7 +7,6 @@ class LoginPage extends React.Component{
     this.doLogin = this.doLogin.bind(this)
   }
 
-
   // invoked when user presses login button
   doLogIn(userStr, pwStr) {
 
@@ -17,7 +16,6 @@ class LoginPage extends React.Component{
 
     // get ride of whitespaces from login
     string.replace(/\s+$/, '');
-
 
     let requestBody = {
       method: 'POST',
@@ -35,7 +33,6 @@ class LoginPage extends React.Component{
       .then(response => response.text())
       .then(data => console.log('Data received from backend: ', data))
       .catch(err => console.log(err))
-    
   };
   
   render(){
