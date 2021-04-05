@@ -54,10 +54,10 @@ class RibbonContainer extends React.Component{
   render(){
       return(
           <div className='ribboncontainer'>
-          <h1>username</h1>
+          {/* <h1>username</h1>
             <input className="usertext" type="text" />
           <h2>password</h2>
-          <input className="classtext"type="text" />
+          <input className="classtext"type="text" /> */}
 
          
           <SignupButton />
