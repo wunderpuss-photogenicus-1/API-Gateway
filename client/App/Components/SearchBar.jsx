@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 const SearchBar = (props) => (
-  <div>
+  <div className = 'searchBar'>
   <input
     id="searchvalues"
     type="search"
