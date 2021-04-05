@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 
 const LoginButton = (props) => (
 
-  <button className="login" onClick="">
+  <button className="login" onClick={() => props.logInFcn()}>
      <Link to='login'>
-    <i className="fas fa-sign-in-alt">Login Button</i>
+      <i className="fas fa-sign-in-alt" >Login Button</i>
     </Link>
   </button>
 
