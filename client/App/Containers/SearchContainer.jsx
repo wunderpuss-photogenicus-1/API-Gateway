@@ -46,8 +46,7 @@ class SearchContainer extends React.Component{
           let bookInfo = {
             title: element.volumeInfo.title,       
             selfLink: element.selfLink,     
-            author: element.volumeInfo.authors[0],
-            items: element.items            
+            author: element.volumeInfo.authors[0],       
           }
           bookArray.push(bookInfo)
         })
