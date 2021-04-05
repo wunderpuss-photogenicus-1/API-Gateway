@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-//  // react hooks
-//  const [ details, setDetails ] = useState({});
-//  const [ isFetching, setIsFetching ] = useState(true);
-
 const LoginButton = (props) => (
 
   <button className="login">

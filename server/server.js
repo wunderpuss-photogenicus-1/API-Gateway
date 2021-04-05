@@ -53,11 +53,12 @@ app.get('/',
 // get the user signin information from frontend to login
 // login information is inside request body
 app.post('/signup', 
+    (req, res, next) => {console.log('Signup req body in backend: ', req.body), next()},
     userController.createUser,
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {
-        res.status(200).send('signup successful', res.locals) 
+        res.status(200).send(res.locals) 
     }
 );
 
@@ -66,6 +67,7 @@ app.post('/signup',
     // take the request, and parse into a usable API fetch request, spits back out the response and send to the front page
 app.post('/search', 
     apiController.googleBooks,
+    apiController.newYorkTimes,
     (req, res) => {
     console.log('Request body: ', req.body.updatedString)
     // console.log('res locals data:', res.locals.data)
@@ -77,13 +79,14 @@ app.post('/search',
 // verify user is logged in. no subsequent middleware is activated unless user is verified. float the 
 // check for verification at the last middleware, where it can be directed to different endpoints depending on the state of successful login
 app.post('/login', 
+    (req, res, next) => {console.log('Login req body in backend: ', req.body), next()},
     userController.verifyUser, 
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {    
         if (res.locals.signupFail) console.log('invalid login credentials')  
         else {
-            res.status(200).send('login success')   
+            res.status(200).send(res.locals)   
         }
     }
 );

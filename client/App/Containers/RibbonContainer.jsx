@@ -8,15 +8,7 @@ class RibbonContainer extends React.Component{
     super(props)
 
 
-    this.doLogIn = this.doLogIn.bind(this)
-    this.doSignUp = this.doSignUp.bind(this) 
   }
-   
-  // invoked when user presses sign up button
-  doSignUp() {
-    console.log(' SignUp Button Pressed.')
-
-  };
   
   render(){
       return(
@@ -26,13 +18,10 @@ class RibbonContainer extends React.Component{
           <h2>password</h2>
           <input className="classtext"type="text" />
 
-         
-          <SignupButton signUpFcn={this.doSignUp}/>
-    
-
-          <LoginButton />
+          {this.props.loginFail ? <SignupButton /> : null}
   
-          
+          {this.props.loginFail ? <LoginButton /> : null}
+
           </div>
       )
   }

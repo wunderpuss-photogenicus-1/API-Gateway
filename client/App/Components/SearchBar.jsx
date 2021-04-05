@@ -8,12 +8,12 @@ const SearchBar = (props) => (
     type="search"
     placeholder="Please enter a request..."
     value={props.inputName}
-    // onKeyPress={ (e) => props.onEnter(e)}
+
   ></input>
-  <button onClick = {() => {
-    // console.log(document.getElementById('searchvalues').value)
+  <button className="search" onClick = {() => {
+
     props.onEnter(document.getElementById('searchvalues').value)
-  }}>Search</button>
+  }}>Search<i className="fab fa-searchengin"></i></button>
  
   </div>
 

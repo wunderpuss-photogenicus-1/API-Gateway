@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const SignupButton = () => {
     function handleClick(e) {
         e.preventDefault();
-      console.log('button working!')
     }
     return(
        <button className="signup" onClick={handleClick}>
