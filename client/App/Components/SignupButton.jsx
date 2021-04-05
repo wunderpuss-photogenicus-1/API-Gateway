@@ -11,7 +11,7 @@ const SignupButton = () => {
     }
     return(
        <button className="signup" onClick={handleClick}>
-       <Link to='signup'>
+       <Link to='/signup'>
          <i className="fas fa-user-plus"></i>Sign Up
          </Link>
        </button>

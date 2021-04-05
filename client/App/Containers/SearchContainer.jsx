@@ -35,9 +35,10 @@ class SearchContainer extends React.Component{
       body: JSON.stringify(sendObj)
     };
 
-    fetch('/search', requestBody)
-    .then(response => response.json())
+    fetch('/search', requestBody) 
+    .then(response => response.text())
     .then(data => console.log('Data received from backend: ', data))
+    .catch(err => console.log(err))
     }
   
   render(){

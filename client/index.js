@@ -5,6 +5,9 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import MainPage from './App/Pages/MainPage.jsx';
 import LoginPage from './App/Pages/LoginPage.jsx';
 import SignupPage from './App/Pages/SignupPage.jsx';
+import { useHistory } from 'react-router'
+//const history = useHistory()
+
 
 class App extends React.Component{
     constructor(props){
@@ -12,6 +15,7 @@ class App extends React.Component{
         this.state = {}
     }
     render(){
+        //history.go(0)
         return(
            <Router>
               <Route path='/' exact component={MainPage}/>
