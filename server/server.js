@@ -4,13 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const port = 3000;
 
+
 const mongoose = require('mongoose');
 
 const userController = require('../authentication/controllers/userController');
 const cookieController = require('../authentication/controllers/cookieController');
 const sessionController = require('../authentication/controllers/sessionController');
 const apiController = require('../authentication/controllers/apiController');
-
 
 // Mongoose Database connection
 console.log('Connecting to Mongoose Database...');
@@ -27,21 +27,38 @@ app.use(cookieParser())
 
 // serve the home page
 app.get('/', 
-    sessionController.verifyLogin, 
+    sessionController.verifyLogin,  
     (req, res) => {
         if (res.locals.isLogged) res.send('is logged')
         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
     }
 );
 
+// app.get('/signup', 
+//     sessionController.verifyLogin, 
+//     (req, res) => {
+//         if (res.locals.isLogged) res.send('is logged')
+//         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+//     }
+// );
+
+// app.get('/login', 
+//     sessionController.verifyLogin, 
+//     (req, res) => {
+//         if (res.locals.isLogged) res.send('is logged')
+//         res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+//     }
+// );
+
 // get the user signin information from frontend to login
 // login information is inside request body
 app.post('/signup', 
+    (req, res, next) => {console.log('Signup req body in backend: ', req.body), next()},
     userController.createUser,
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {
-        res.status(200).send('signup successful', res.locals) 
+        res.status(200).send(res.locals) 
     }
 );
 
@@ -62,13 +79,14 @@ app.post('/search',
 // verify user is logged in. no subsequent middleware is activated unless user is verified. float the 
 // check for verification at the last middleware, where it can be directed to different endpoints depending on the state of successful login
 app.post('/login', 
+    (req, res, next) => {console.log('Login req body in backend: ', req.body), next()},
     userController.verifyUser, 
     cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {    
         if (res.locals.signupFail) console.log('invalid login credentials')  
         else {
-            res.status(200).send('login success')   
+            res.status(200).send(res.locals)   
         }
     }
 );
