@@ -13,7 +13,9 @@ class MainPage extends React.Component{
           <div className='header'>
               <RibbonContainer/>
           </div>
-
+        <div className='title'>
+          <h2>API Gateway</h2>
+          </div>
         <div className='body'>
             <SearchContainer/>
         </div>

@@ -15,14 +15,14 @@ class RibbonContainer extends React.Component{
   // invoked when user presses login button
   doLogIn(userStr, pwStr) {
 
+    if(e.key === 'Enter') {
+
     // debugging
     console.log(' SignUp Button Pressed.')
     console.log(`Username: ${userStr}, Password: ${pwStr}`)
 
     // get ride of whitespaces from login
     string.replace(/\s+$/, '');
-
-    
 
     let requestBody = {
       method: 'POST',
@@ -42,6 +42,7 @@ class RibbonContainer extends React.Component{
       .then(data => console.log('Data received from backend: ', data))
       .catch(err => console.log(err))
     
+    }
   };
 
   // invoked when user presses sign up button
@@ -50,7 +51,6 @@ class RibbonContainer extends React.Component{
 
   };
 
-  
   render(){
       return(
           <div className='ribboncontainer'>
@@ -60,11 +60,11 @@ class RibbonContainer extends React.Component{
           <input className="classtext"type="text" />
 
          
-          <SignupButton signUpFcn={this.doSignUp}/>
+          <SignupButton />
     
 
 
-          <LoginButton logInFcn={this.doLogIn}/>
+          <LoginButton />
   
           
           </div>
