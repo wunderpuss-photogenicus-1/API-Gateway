@@ -14,10 +14,10 @@ const apiController = require('../authentication/controllers/apiController');
 
 // Mongoose Database connection
 console.log('Connecting to Mongoose Database...');
-const mongoURI = 'mongodb://localhost/API-Gateway';
+const mongoURI = 'mongodb://localhost/API-Gateway';   
 mongoose.connect(mongoURI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
-    console.log('Successfully Connected to Mongoose Database')
+    console.log('Successfully Connected to Mongoose Database') 
 });
 
 // express parsers
@@ -54,10 +54,10 @@ app.get('/',
 // login information is inside request body
 app.post('/signup', 
     userController.createUser,
-    cookieController.setSSIDCookie, 
+    cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {
-        res.status(200).send('signup successful', res.locals)
+        res.status(200).send('signup successful', res.locals) 
     }
 );
 
@@ -68,8 +68,9 @@ app.post('/search',
     apiController.googleBooks,
     (req, res) => {
     console.log('Request body: ', req.body.updatedString)
-    console.log('res locals data:', res.locals.data)
-    res.status(200).send(res.locals.finalUrl)
+    // console.log('res locals data:', res.locals.data)
+    // console.log(res.locals.data)
+    res.status(200).json(res.locals.data)
     // console.log('We are at the back end /search endpoint')
 })
 
@@ -77,16 +78,15 @@ app.post('/search',
 // check for verification at the last middleware, where it can be directed to different endpoints depending on the state of successful login
 app.post('/login', 
     userController.verifyUser, 
-    cookieController.setSSIDCookie, 
+    cookieController.setSSIDCookie,  
     sessionController.startSession, 
     (req, res) => {    
-        if (res.locals.signupFail) console.log('invalid login credentials')
+        if (res.locals.signupFail) console.log('invalid login credentials')  
         else {
-            res.status(200).send('login success')
+            res.status(200).send('login success')   
         }
     }
 );
-
 
 // handle unrecognized requests with 404
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));

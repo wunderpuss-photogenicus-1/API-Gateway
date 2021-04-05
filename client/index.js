@@ -18,10 +18,10 @@ class App extends React.Component{
         //history.go(0)
         return(
            <Router>
-              <Route path='/' exact component={MainPage}/>
-              <Route path='/login' exact component={LoginPage}/>
+              <Route path='/' exact component={MainPage}/> 
+              <Route path='/login' exact component={LoginPage}/> 
               <Route path='/signup' exact component={SignupPage}/>
-            </Router> 
+            </Router>   
         )
     }
 }
