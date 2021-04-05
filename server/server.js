@@ -50,6 +50,7 @@ app.post('/signup',
     // take the request, and parse into a usable API fetch request, spits back out the response and send to the front page
 app.post('/search', 
     apiController.googleBooks,
+    apiController.newYorkTimes,
     (req, res) => {
     console.log('Request body: ', req.body.updatedString)
     // console.log('res locals data:', res.locals.data)

@@ -44,9 +44,11 @@ class SearchContainer extends React.Component{
         let bookArray = [];
         data.forEach(element => {
           let bookInfo = {
-            title: element.volumeInfo.title,       
+            // title: element.volumeInfo.title,       
+            title: element.title,       
             selfLink: element.selfLink,     
-            author: element.volumeInfo.authors[0],            
+            // author: element.volumeInfo.authors[0],            
+            author: element.author,            
           }
           bookArray.push(bookInfo)
         })
@@ -70,6 +72,7 @@ class SearchContainer extends React.Component{
     }
     
       return(
+        
         <div className='searchcontainer'>
             <SearchBar onEnter={this.performSearch} />
          
